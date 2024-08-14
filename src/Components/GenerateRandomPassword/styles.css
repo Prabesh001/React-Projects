@@ -1,0 +1,42 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  gap: 5px;
+  font-weight: bold;
+}
+input[type="number"]{
+  padding: 10px;
+  font-size: 2.8em;
+  width: 75px; 
+  margin-bottom: 5px;
+  text-align: center;
+}
+.warning{
+  font-size: 0.8em;
+  color: red;
+  margin-bottom: 20px;
+}
+button{
+  padding: 5px 10px;
+  font-size: 1.3em;
+  border-radius: 5px;
+  background-color: lightcoral;
+  color: whitesmoke;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+  border: none;
+  box-shadow: 1px 1px 6px gray;
+  transition: all 0.5s;
+}
+button:hover{
+  background-color: hsl(0, 79%, 62%);
+}
+.password{
+  color: green;
+  text-wrap: wrap;
+  font-size: 1.3em;
+}

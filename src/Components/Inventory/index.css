@@ -1,0 +1,40 @@
+.inventory{
+  padding: 10px;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7affff;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+.item:hover{
+  background-color: #2cdfdf;
+}
+.item:active{
+  background-color: #0a9a9a;
+}
+
+.product{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.selected-item{
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  padding: 10px 20px;
+  background-color: rgb(9, 194, 132);
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+}
