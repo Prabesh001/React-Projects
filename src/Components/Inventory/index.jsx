@@ -11,20 +11,24 @@ function Inventory() {
   const [noOfItems, setNoOfItems] = useState(0);
   const [query, setQuery] = useState(localStorage.getItem("search") || "");
 
+  const filteredProduct = groceryProducts.filter((product) =>
+    product.name.toLowerCase().includes(query.toLowerCase())
+  );
+  
   function searchQuery(e) {
-    setQuery(e.target.value);
+    query.length > 30 ? setQuery("") : setQuery(e.target.value)
   }
 
-  function addProduct({ id, name, price }) {
-    const existingItem = selectedItem.find((item) => item.id === id);
+  function addProduct(product) {
+    const existingItem = selectedItem.find((item) => item.id === product.id);
     if (existingItem) {
       setSelectedItem(
         selectedItem.map((item) =>
-          item.id === id ? { ...item, count: item.count + 1 } : item
+          item.id === product.id ? { ...item, count: item.count + 1 } : item
         )
       );
     } else {
-      setSelectedItem([{ id, name, price, count: 1 }, ...selectedItem]);
+      setSelectedItem([{ ...product, count: 1 }, ...selectedItem]);
     }
   }
 
@@ -32,12 +36,11 @@ function Inventory() {
     return products.map((ele, index) => (
       <div
         className="item"
-        title={ele.name}
+        title={ele.description}
         key={index}
-        onClick={() =>
-          {addProduct({ id: ele.id, name: ele.name, price: ele.price * 10 })
-          console.log(ele)}
-        }
+        onClick={() => {
+          addProduct(ele);
+        }}
       >
         {ele.name}- Rs. {ele.price * 10}
       </div>
@@ -45,8 +48,8 @@ function Inventory() {
   };
 
   function clearSelected() {
-    setSelectedItem([]);
     localStorage.removeItem("array");
+    setSelectedItem([]);
     setTotalCost(0);
     setNoOfItems(0);
   }
@@ -57,16 +60,13 @@ function Inventory() {
     let total = 0;
     let number = 0;
     selectedItem.forEach((item) => {
-      total += item.price * item.count;
+      total += item.price * 10 * item.count;
       setTotalCost(total);
       number += item.count;
     });
     setNoOfItems(number);
   }, [selectedItem, query]);
 
-  const filteredProduct = groceryProducts.filter((product) =>
-    product.name.toLowerCase().includes(query.toLowerCase())
-  );
 
   return (
     <div className="inventory">
@@ -77,6 +77,9 @@ function Inventory() {
         value={query}
         onChange={(event) => searchQuery(event)}
       />
+      <button className="clear-button" onClick={() => setQuery("")}>
+        Clear Search
+      </button>
 
       <div className="container">
         {query === "" ? (
@@ -95,8 +98,8 @@ function Inventory() {
       <h5>Items: {noOfItems}</h5>
       <div className="product">
         {selectedItem.map((ele, index) => (
-          <div className="selected-item" key={index}>
-            {ele.name} <span>×{ele.count}</span>
+          <div className="selected-item" title={ele.name} key={index}>
+            {ele.name} <span title={ele.count}>×{ele.count}</span>
           </div>
         ))}
       </div>

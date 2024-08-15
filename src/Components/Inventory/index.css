@@ -9,10 +9,12 @@ input[type="text"]{
   border-radius: 50px;
   font-size: 1.3em;
   border: 3px solid black;
+  margin-right: 15px;
 }
 input:focus{
   background-color: hsl(0, 0%, 93%);
   text-shadow: 0 0 5px whitesmoke;
+  outline-color: #0a9a9a;
 }
 
 .container {
@@ -23,6 +25,7 @@ input:focus{
   margin-bottom: 20px;
   font-size: 1.2em;
   background-color: #e3f6f6;
+  overflow: hidden;
 }
 .item {
   display: flex;
@@ -43,6 +46,8 @@ input:focus{
  font-size: 0.7em;  
  color: red;
  font-weight: bold;
+ white-space: wrap;
+ overflow: hidden;
 }
 
 .product {
