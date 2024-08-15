@@ -1,5 +1,6 @@
 .inventory {
   padding: 10px;
+  background-color: hsl(39, 77%, 87%);
 }
 input[type="text"]{
   margin-bottom: 7px;
@@ -10,16 +11,18 @@ input[type="text"]{
   border: 3px solid black;
 }
 input:focus{
-  background-color: lightgray;
+  background-color: hsl(0, 0%, 93%);
   text-shadow: 0 0 5px whitesmoke;
 }
 
 .container {
+  padding: 10px 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   margin-bottom: 20px;
   font-size: 1.2em;
+  background-color: #e3f6f6;
 }
 .item {
   display: flex;

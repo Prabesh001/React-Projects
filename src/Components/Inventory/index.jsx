@@ -35,7 +35,8 @@ function Inventory() {
         title={ele.name}
         key={index}
         onClick={() =>
-          addProduct({ id: ele.id, name: ele.name, price: ele.price * 10 })
+          {addProduct({ id: ele.id, name: ele.name, price: ele.price * 10 })
+          console.log(ele)}
         }
       >
         {ele.name}- Rs. {ele.price * 10}

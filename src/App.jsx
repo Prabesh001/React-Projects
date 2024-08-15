@@ -23,8 +23,8 @@ function App() {
       /> }
       <Dictionary />
       <AnimeApi />
-      <Layout /> */}
-      {/* <GenerateRandomPassword /> */}
+      <Layout />
+      <GenerateRandomPassword /> */}
       <Inventory />
     </>
   )
