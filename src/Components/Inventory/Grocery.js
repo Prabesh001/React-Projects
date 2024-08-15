@@ -12,7 +12,7 @@ const groceryProducts = [
       fat: "0.2g"
     },
     availableSeason: ["Fall", "Winter"],
-    description: "A sweet, crunchy fruit that is great for snacks and desserts."
+    description: "A sweet, crunchy fruit that is great for snacks and desserts.",
   },
   {
     id: 2,
