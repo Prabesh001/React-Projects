@@ -1,13 +1,13 @@
 .star-rating{
-  background-color: rgb(107, 102, 102);
+  background-color: #6b6666;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.active{
+.star-rating .active{
   color: #fff700;
 }
 .inactive{
-  color: black;
+  color: lightgray;
 }

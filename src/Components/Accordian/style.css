@@ -11,6 +11,7 @@
   padding: 10px 20px;
   background-color: greenyellow;
   color: rgb(94, 82, 82);
+  text-shadow: 0 0 4px lightcyan;
   font-weight: bold;
   border: none;
   border-radius: 10px;
@@ -23,6 +24,8 @@
   background-color: #3b9ebf;
   margin-bottom: 10px;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
 }
 .title{
   color: white;

@@ -1,6 +1,7 @@
 .inventory {
   padding: 10px;
   background-color: hsl(39, 77%, 87%);
+  width: fit-content;
 }
 input[type="text"]{
   margin-bottom: 7px;
@@ -17,7 +18,7 @@ input:focus{
   outline-color: #0a9a9a;
 }
 
-.container {
+.inventory .container {
   padding: 10px 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -30,11 +31,10 @@ input:focus{
 .item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #7affff;
   padding: 10px 20px;
   cursor: pointer;
-  text-wrap: nowrap;
 }
 .item:hover {
   background-color: #2cdfdf;
@@ -42,6 +42,24 @@ input:focus{
 .item:active {
   background-color: #0a9a9a;
 }
+.add-btn{
+  background-color: #30ca02;
+  border: none;
+  height: 40px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-shadow: 0 0 3px black;
+}
+.add-btn:hover{
+  background-color: #259702;
+}
+
 .search-error{
  font-size: 0.7em;  
  color: red;

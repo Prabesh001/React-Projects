@@ -14,9 +14,9 @@ function Inventory() {
   const filteredProduct = groceryProducts.filter((product) =>
     product.name.toLowerCase().includes(query.toLowerCase())
   );
-  
+
   function searchQuery(e) {
-    query.length > 30 ? setQuery("") : setQuery(e.target.value)
+    query.length > 30 ? setQuery("") : setQuery(e.target.value);
   }
 
   function addProduct(product) {
@@ -34,16 +34,22 @@ function Inventory() {
 
   const generateHTML = (products) => {
     return products.map((ele, index) => (
-      <div
-        className="item"
-        title={ele.description}
-        key={index}
-        onClick={() => {
-          addProduct(ele);
-        }}
-      >
-        {ele.name}- Rs. {ele.price * 10}
-      </div>
+      
+      <>
+        <div className="item" title={ele.description} key={index}>
+          <span>
+            {ele.name}- Rs. {ele.price * 10}
+          </span>
+          <button
+            className="add-btn"
+            onClick={() => {
+              addProduct(ele);
+            }}
+          >
+            +
+          </button>
+        </div>
+      </>
     ));
   };
 
@@ -66,7 +72,6 @@ function Inventory() {
     });
     setNoOfItems(number);
   }, [selectedItem, query]);
-
 
   return (
     <div className="inventory">

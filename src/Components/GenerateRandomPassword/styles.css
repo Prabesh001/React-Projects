@@ -7,11 +7,12 @@
   width: 100vw;
   gap: 5px;
   font-weight: bold;
+  background-color: rgb(156, 225, 156);
 }
 input[type="number"]{
   padding: 10px;
   font-size: 2.8em;
-  width: 75px; 
+  width: 50px; 
   margin-bottom: 5px;
   text-align: center;
 }
@@ -39,4 +40,5 @@ button:hover{
   color: green;
   text-wrap: wrap;
   font-size: 1.3em;
+  text-shadow: 0 0 3px white;
 }
