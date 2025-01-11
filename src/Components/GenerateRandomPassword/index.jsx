@@ -37,7 +37,7 @@ function GenerateRandomPassword(){
         <h1>Generate Random Password</h1>
       </div>
       <input type="number" value={num} onChange={()=>handleGetPasswordLength(event)}/>
-      <span className="warning">*Password cannont be longer than 20 characters*</span>
+      <span className="warning">*Password cannot be longer than 20 characters*</span>
       <button onClick={handleGeneratePassword}>Generate</button><br />
       <div>
         <div>Your Password: </div>

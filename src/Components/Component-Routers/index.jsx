@@ -6,7 +6,7 @@ import GeneratePassword from '../GenerateRandomPassword'
 import RandomColor from '../Random-Color'
 import Accordian from '../Accordian'
 import Dictionary from '../Dictionary'
-import Layout from '../Layout'
+import ImageSlider from '../Image-Slider'
 
 function RouteIndex() {
   return (
@@ -35,7 +35,7 @@ function RouteIndex() {
             <Link to="/Dictionary">Dictionary</Link>
           </span>
           <span style={{margin: "10px"}}>
-            <Link to="/Layout">Layout</Link>
+            <Link to="/Image-Slider">Image Slider</Link>
           </span>
         </div>
 
@@ -47,7 +47,7 @@ function RouteIndex() {
           <Route path="/Inventory" element={<Inventory />} />
           <Route path="/Accordian" element={<Accordian />} />
           <Route path="/Dictionary" element={<Dictionary />} />
-          <Route path="/Layout" element={<Layout />} />
+          {/* <Route path="/Image-Slider" element={<ImageSlider url={"abc"}/>} /> */}
         </Routes>
       </Router>
     </>

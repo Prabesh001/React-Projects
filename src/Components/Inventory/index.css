@@ -1,7 +1,7 @@
 .inventory {
   padding: 10px;
   background-color: hsl(39, 77%, 87%);
-  width: fit-content;
+  width: 100%;
 }
 input[type="text"]{
   margin-bottom: 7px;
@@ -20,20 +20,18 @@ input:focus{
 
 .inventory .container {
   padding: 10px 5px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   font-size: 1.2em;
   background-color: #e3f6f6;
-  overflow: hidden;
+  overflow: scroll;
+  column-gap: 10px;
 }
 .item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #7affff;
-  padding: 10px 20px;
   cursor: pointer;
 }
 .item:hover {
@@ -76,7 +74,6 @@ input:focus{
 .selected-item {
   display: flex;
   justify-content: space-between;
-  width: 100px;
   padding: 10px 20px;
   background-color: rgb(9, 194, 132);
   color: white;
@@ -94,20 +91,4 @@ input:focus{
 }
 .clear-button:hover{
   background-color: hsl(0, 100%, 40%);
-}
-
-@media (max-width: 900px) {
-  .container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (max-width: 705px) {
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 400px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
 }

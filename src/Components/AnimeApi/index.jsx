@@ -67,7 +67,7 @@ function AnimeApi() {
     <div className="app">
       <h2>Search Anime Name</h2>
       <input 
-        type="text" 
+        type="search" 
         value={nameValue} 
         onChange={(e) => setNameValue(e.target.value)} 
         placeholder="Anime name" 
