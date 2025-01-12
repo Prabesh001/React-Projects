@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
-import useResponsive from "./useResponsive";
+import Loading from "../Loading/loading.jsx";
 import "./styles.css";
 
 function AnimeApi() {
-  const [nameValue, setNameValue] = useState(localStorage.getItem("nameValue") || "");
-  const [languageSelect, setLanguageSelect] = useState(Number(localStorage.getItem("languageSelect")) || 1);
-  const [movies, setMovies] = useState(JSON.parse(localStorage.getItem("movies")) || []);
+  const [nameValue, setNameValue] = useState(
+    localStorage.getItem("nameValue") || ""
+  );
+  const [languageSelect, setLanguageSelect] = useState(
+    Number(localStorage.getItem("languageSelect")) || 1
+  );
+  const [movies, setMovies] = useState(
+    JSON.parse(localStorage.getItem("movies")) || []
+  );
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(Number(localStorage.getItem("page")) || 1);
   const [hasMore, setHasMore] = useState(true);
-
-  const { width } = useResponsive();
 
   useEffect(() => {
     if (nameValue) fetchData();
@@ -33,9 +37,11 @@ function AnimeApi() {
     setError("");
 
     try {
-      const response = await fetch(`https://api.jikan.moe/v4/anime?q=${nameValue.toLowerCase()}&sfw&page=${page}`);
+      const response = await fetch(
+        `https://api.jikan.moe/v4/anime?q=${nameValue.toLowerCase()}&sfw&page=${page}`
+      );
       if (!response.ok) {
-        throw new Error('Could not fetch resource');
+        throw new Error("Could not fetch resource");
       }
 
       const data = await response.json();
@@ -47,7 +53,7 @@ function AnimeApi() {
         setHasMore(true);
       }
     } catch (e) {
-      setError('Error occurred: ' + e.message + '. Probably Internet is gone!');
+      setError("Error occurred: " + e.message + ". Probably Internet is gone!");
     } finally {
       setLoading(false);
     }
@@ -62,40 +68,65 @@ function AnimeApi() {
     setPage(1);
     fetchData();
   };
+  
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <div className="app">
       <h2>Search Anime Name</h2>
-      <input 
-        type="search" 
-        value={nameValue} 
-        onChange={(e) => setNameValue(e.target.value)} 
-        placeholder="Anime name" 
-      />
-      <button onClick={handleSearch} disabled={loading}>Search </button>
+      <form action="submit">
+        <input
+          type="search"
+          value={nameValue}
+          onChange={(e) => setNameValue(e.target.value)}
+          placeholder="Anime name"
+        />
+        <button
+          onClick={handleSearch}
+          disabled={loading}
+          style={{ marginRight: "10px" }}
+        >
+          Search{" "}
+        </button>
+      </form>
+      <br />
       <label htmlFor="languageSelect"> Name in:</label>
-      <select 
-        name="Language" 
-        id="languageSelect" 
-        value={languageSelect} 
+      <select
+        name="Language"
+        id="languageSelect"
+        value={languageSelect}
         onChange={select}
       >
         <option value={1}>Japanese</option>
         <option value={0}>English</option>
       </select>
-      <br /><br />
+      <br />
+      <br />
       <div id="movies" className="movies-container">
         {error && <p>{error}</p>}
         {movies.length === 0 && !error && <p>No result found!</p>}
         {movies.map((detail, index) => {
-          const viewedTitle = languageSelect === 0 ? detail.title_english : detail.title || detail.title;
+          const viewedTitle =
+            languageSelect === 0
+              ? detail.title_english
+              : detail.title || detail.title;
           return (
-            <div key={index} className="each-movie" >
-              <img src={detail.images.jpg.image_url} title={viewedTitle} className="cover" alt={viewedTitle} />
+            <div key={index} className="each-movie">
+              <img
+                src={detail.images.jpg.image_url}
+                title={viewedTitle}
+                className="cover"
+                alt={viewedTitle}
+                draggable="false"
+              />
               <span className="anime-name">{viewedTitle}</span>
               <div id="status">{detail.status}</div>
               <select id={`number-${index + 1}`}>
-                <option value="" disabled selected>Not Watched</option>
+                <option value="" disabled selected>
+                  Not Watched
+                </option>
                 <option value="1">Watching</option>
                 <option value="2">Completed</option>
                 <option value="3">Dropped</option>

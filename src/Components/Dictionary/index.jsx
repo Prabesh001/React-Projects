@@ -9,7 +9,9 @@ function Dictionary() {
 
   function getWord(event) {
     setWord(event.target.value);
-  }
+  } 
+
+  const breakStmt = <br/>
 
   async function fetchMeaning() {
     if (!word.trim()) {
@@ -27,7 +29,8 @@ function Dictionary() {
 
       if (response.ok && data.length > 0) {
         const definitions = data[0].meanings.map(meaning => meaning.definitions.map(def => def.definition)).flat();
-        setMeaning(definitions.join(', '));
+        setMeaning(definitions);
+        console.log(meaning)
       } else {
         setError('No meaning found for the entered word.');
       }
