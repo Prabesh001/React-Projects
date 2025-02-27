@@ -27,6 +27,7 @@
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
+  transition: all 1s ease-in-out;
 }
 .title{
   color: white;

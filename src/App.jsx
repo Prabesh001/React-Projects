@@ -13,6 +13,7 @@ import Accordian from "./Components/Accordian";
 import Dictionary from "./Components/Dictionary";
 // import ImageSlider from "./Components/Image-Slider";
 import Pdf from "./Components/Pdf";
+import ToDoList from "./Components/To-Do-List";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           { path: "/React-Projects/Anime-Api", label: "My Anime" },
           { path: "/React-Projects/Accordian", label: "Accordian" },
           { path: "/React-Projects/Dictionary", label: "Dictionary" },
+          { path: "/React-Projects/ToDoList", label: "To-Do-List" },
           // { path: "/React-Projects/Image-Slider", label: "Image Slider" },
         ].map((link) => (
           <span key={link.path} style={{ margin: "10px" }}>
@@ -42,6 +44,7 @@ function App() {
         <Route path="/React-Projects/Inventory" element={<Inventory />} />
         <Route path="/React-Projects/Accordian" element={<Accordian />} />
         <Route path="/React-Projects/Dictionary" element={<Dictionary />} />
+        <Route path="/React-Projects/ToDoList" element={<ToDoList />} />
         <Route path="/React-Projects/Pdf" element={<Pdf />} />
       </Routes>
     </Router>
